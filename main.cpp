@@ -1,6 +1,6 @@
 // main.cpp : Este archivo contiene la función "main". La ejecución del programa comienza y termina ahí.
 //
-
+#include <filesystem>
 #include "libs/commons.h"
 #include "libs/register.h"
 #include "libs/login.h"
@@ -8,15 +8,19 @@
 
 
 
+#define PATH "data"
+
 using namespace std;
 
 void menu();
 void options(int);
+void createDirectory();
 
 #include <limits>
 
 int main()
 {
+    createDirectory();
     menu();
 }
 
@@ -68,3 +72,11 @@ void options(int option) {
     }
 }
 
+void createDirectory(){
+    if (!std::filesystem::exists(PATH)) {
+        if (!(std::filesystem::create_directory(PATH))) {
+            cout << "ERROR :: DIRECTORY WAS NOT CREATED";
+            exit(10);
+        }
+    }
+}
