@@ -4,7 +4,7 @@ Basic Login program, storing users in diferent *.txt* files
 
 ## Objective
 
-Practice text file operation and logic.
+Practice text file operations and logic.
 
 ## Tools
 
